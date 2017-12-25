@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class GameBoard {
 	
 	private String availableLetters;
@@ -28,6 +28,7 @@ public class GameBoard {
 	public void displayLetters()
 	{
 		System.out.println("Available letters - " + availableLetters);
+		System.out.println();
 	}
 	
 	public void updatePuzzle()
@@ -51,13 +52,16 @@ public class GameBoard {
 		for (int i=0; i<PUZZLE.length();i++)
 		{
 			
-			if (Character.isLetter(PUZZLE.charAt(i)))
+			if (Character.isLetter(PUZZLE.charAt(i))) {
 				System.out.print("-");
-			
+				
+			}
 			else
 				System.out.print(" ");
 					
 		}
+		
+		System.out.println();
 
 	}
 
