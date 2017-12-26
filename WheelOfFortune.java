@@ -30,7 +30,7 @@ public class WheelOfFortune
 	
 	public static void play (Player player) 
 	{
-		
+		Wheel fortuneWheel = new Wheel();
 		int playerChoice=-1;
 		
 		Scanner keyboard = new Scanner(System.in);
@@ -44,9 +44,7 @@ public class WheelOfFortune
 		
 		if(playerChoice == 1)
 		{
-			/*
-			 * spin
-			 */
+			fortuneWheel.spin();
 		}
 		else
 		{
