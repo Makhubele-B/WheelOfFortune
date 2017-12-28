@@ -13,7 +13,7 @@ public class Wheel
 		System.out.println("You landed on $" + wheelValue );
 	}
 	
-	public double wheelValue(int spot)
+	private double wheelValue(int spot)
 	{
 		double [] wheelValues = {100.0, 300.0, 500.0, 700.0, 900.0,
 									2000.0, 3000.0, 5000.0, -1000.0, 0.0};
@@ -21,5 +21,9 @@ public class Wheel
 		return wheelValues[spot];
 	}
 	
+	public double getWheelValue()
+	{
+		return wheelValue;
+	}
 	
 }

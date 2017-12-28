@@ -12,5 +12,10 @@ public class Player {
 	{
 		return playerNumber;
 	}
+	
+	public void guess()
+	{
+		
+	}
 
 }

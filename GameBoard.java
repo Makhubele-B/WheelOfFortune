@@ -1,7 +1,7 @@
 import java.util.*;
 public class GameBoard {
 	
-	private String availableLetters;
+	private StringBuilder availableLetters;
 	private final String PUZZLE;
 	private StringBuilder pendingPuzzle;
 	private String category;
@@ -10,7 +10,7 @@ public class GameBoard {
 	
 	public GameBoard (String letters, String puzzle, String category)
 	{
-		availableLetters = letters.toUpperCase();
+		availableLetters = new StringBuilder(letters.toUpperCase());
 		PUZZLE = puzzle;
 		this.category = category;
 		character = ' ';
@@ -25,6 +25,17 @@ public class GameBoard {
 		
 	}
 	
+	public void setCharacter(char character)
+	{
+		this.character = character;
+	}
+	
+	public void updateAvailableLetters()
+	{
+		int index = availableLetters.toString().toLowerCase().indexOf(Character.toLowerCase(character));
+		availableLetters.setCharAt(index, ' ');
+	}
+	
 	public void displayLetters()
 	{
 		System.out.println("Available letters - " + availableLetters);
@@ -35,8 +46,8 @@ public class GameBoard {
 	{
 		for (int i=0; i<PUZZLE.length();i++)
 		{
-			if (character == PUZZLE.charAt(i))
-			pendingPuzzle.setCharAt(i, character);
+			if (Character.toLowerCase(character) == Character.toLowerCase(PUZZLE.charAt(i)))
+			pendingPuzzle.setCharAt(i, PUZZLE.charAt(i));
 					
 		}
 	}
