@@ -2,6 +2,7 @@ import java.util.*;
 public class Player {
 	
 	private int playerNumber;
+	private char playerGuess;
 	
 	public Player(int number)
 	{
@@ -13,9 +14,14 @@ public class Player {
 		return playerNumber;
 	}
 	
-	public void guess()
+	public void setPlayerGuess(char guess)
 	{
-		
+		playerGuess = guess;
+	}
+	
+	public char getPlayerGuess()
+	{
+		return playerGuess;
 	}
 
 }

@@ -39,32 +39,48 @@ public class WheelOfFortune
 	{
 		Wheel fortuneWheel = new Wheel();
 		int playerChoice=-1;
-		char playerGuess;
 		boolean goAgain = true, puzzleSolved=false;
 		Scanner keyboard = new Scanner(System.in);
 		
 		
 		while (goAgain==true && puzzleSolved==false)
 		{
+			
+			boolean wasGuessed=false;
+			
 			do 
 			{
+				
 				System.out.print("Player " + player.getPlayerNumber() + " - would you like to Spin (1)"
 						+ " or Guess (2) the puzzle? ");
 				playerChoice = keyboard.nextInt();
+				
 			}while(playerChoice != 1 && playerChoice!=2);
 			
 			if(playerChoice == 1)
 			{
+				
 				fortuneWheel.spin();
 				if (fortuneWheel.getWheelValue()>0.0) 
 				{
+					
+					do {
 					System.out.print("Select your letter from the available letters from above: ");
-					playerGuess = keyboard.next().charAt(0);
-					board.setCharacter(playerGuess);
-					//board.updatePuzzle();
+					
+					player.setPlayerGuess(keyboard.next().charAt(0)); 
+					
+					wasGuessed = board.isLetterGuessed(player.getPlayerGuess());
+					}while (wasGuessed);
+					
+					board.setCharacter(player.getPlayerGuess());
+					
 					System.out.println();
 					board.updateAvailableLetters();
+					
+					if (board.isLetterInPuzzle(player.getPlayerGuess())==true)
 					displayBoard(board);
+					else
+						goAgain=false;
 				}
 				else
 				{

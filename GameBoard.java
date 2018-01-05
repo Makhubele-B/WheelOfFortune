@@ -32,7 +32,9 @@ public class GameBoard {
 	
 	public void updateAvailableLetters()
 	{
+		
 		int index = availableLetters.toString().toLowerCase().indexOf(Character.toLowerCase(character));
+		
 		availableLetters.setCharAt(index, ' ');
 	}
 	
@@ -42,6 +44,34 @@ public class GameBoard {
 		System.out.println();
 	}
 	
+	public boolean isLetterGuessed(char letterGuess)
+	{
+		
+		if ((availableLetters.toString().toLowerCase().indexOf(Character.toLowerCase(letterGuess)))==-1)
+				return true;
+		else
+			return false;
+	}
+	
+	public boolean isLetterInPuzzle(char letterGuess)
+	{
+		
+		boolean status = false;
+		
+		for (int i=0; i<PUZZLE.length();i++)
+		{
+			if (Character.toLowerCase(character) == Character.toLowerCase(PUZZLE.charAt(i)))
+			{
+				status = true;
+				break;
+			}
+			else
+				status = false;
+			
+					
+		}
+		return status;
+	}
 	public void updatePuzzle()
 	{
 		for (int i=0; i<PUZZLE.length();i++)
