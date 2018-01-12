@@ -7,9 +7,18 @@ public class GameBoard {
 	private String category;
 	private char character;
 	
-	
+	/**
+	 * This constructor initializes a new game board with the letters available to the players
+	 * at the start of the game, the puzzle to be guessed by the players, and the category pertaining
+	 * to the puzzle. Constructor sets the initial value of the character currently on the board to 
+	 * a blank character
+	 * @param letters Letters made available to players at the start of the game
+	 * @param puzzle Puzzle to be solved by players
+	 * @param category Category pertaining to puzzle
+	 */
 	public GameBoard (String letters, String puzzle, String category)
 	{
+		
 		availableLetters = new StringBuilder(letters.toUpperCase());
 		PUZZLE = puzzle;
 		this.category = category;
@@ -44,6 +53,12 @@ public class GameBoard {
 		System.out.println();
 	}
 	
+	/**
+	 * This method checks whether the player's letter guess was previously guessed.
+	 * Returns true if it was previously guessed and false otherwise.
+	 * @param letterGuess The letter currently on the board (The letter being played)
+	 * @return Whether or not the current letter was previously guessed
+	 */
 	public boolean isLetterGuessed(char letterGuess)
 	{
 		
@@ -51,6 +66,7 @@ public class GameBoard {
 				return true;
 		else
 			return false;
+		
 	}
 	
 	public boolean isLetterInPuzzle(char letterGuess)
