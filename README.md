@@ -1,4 +1,4 @@
-#WHEEL
+WHEEL
 =====
 
 
@@ -7,9 +7,10 @@ This beginner-level java project recreates the classic game of Wheel of Fortune.
 
 
 
-###INITIAL SCREEN
+INITIAL SCREEN
+---------------
 
-Welcome to the Wheel of Fortune
+**Welcome to the Wheel of Fortune**
 
 Available Letters - ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
