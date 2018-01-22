@@ -15,7 +15,7 @@ Available Letters - ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 Here is the puzzle (Movie):
 
-\-\-\- \-\-\-\-\-\-\ \-\-\-\- \-\-\ \-\-\-\-
+\-\-\- \-\-\-\-\-\- \-\-\-\- \-\- \-\-\-\-
 
 Player 1 - would you like to Spin (1) or Guess (2) the puzzle? 
 
