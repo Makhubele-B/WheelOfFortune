@@ -7,8 +7,7 @@ This beginner-level java project recreates the classic game of Wheel of Fortune.
 
 
 
-INITIAL SCREEN
----------------
+## INITIAL SCREEN
 
 **Welcome to the Wheel of Fortune**
 
@@ -16,7 +15,7 @@ Available Letters - ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 Here is the puzzle (Movie):
 
-_ _ _  _ _ _ _ _ _  _ _ _ _  _ _  _ _ _ _
+\-\-\- \-\-\-\-\-\-\ \-\-\-\- \-\-\ \-\-\-\-
 
 Player 1 - would you like to Spin (1) or Guess (2) the puzzle? 
 
