@@ -1,7 +1,7 @@
 # WHEEL
 
-This beginner-level java project recreates the classic game of Wheel of Fortune. It consisits of 3
- players, underscores/dashes to represent letters in the puzzle, and available letters.
+**This beginner-level java project recreates the classic game of Wheel of Fortune. It consisits of 3
+ players, underscores/dashes to represent letters in the puzzle, and available letters.**
 
 
 
@@ -21,9 +21,9 @@ Player 1 - would you like to Spin (1) or Guess (2) the puzzle?
 
 **Wheel values are as follows:**
 
-**Random Number 1:	$100**	
+**Random Number 1:	$100**
 **Random Number 2:	$300**
-**Random Number 3:	$500**	
+**Random Number 3:	$500**
 **Random Number 4:	$700**
 **Random Number 5:	$900**
 **Random Number 6:	$2000**
