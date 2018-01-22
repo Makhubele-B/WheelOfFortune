@@ -121,5 +121,15 @@ public class GameBoard {
 		System.out.println();
 
 	}
+	
+	public String getPendingPuzzle() 
+	{
+		return this.pendingPuzzle.toString();
+	}
+	
+	public String getPuzzle() 
+	{
+		return this.PUZZLE;
+	}
 
 }

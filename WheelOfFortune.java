@@ -1,42 +1,26 @@
 import java.util.*;
 public class WheelOfFortune 
 {
-	public static void main (String [] args) 
-	{
-		//Prints welcome message
-		System.out.println("Welcome to the Wheel of Fortune\n");
-		
-		//Creates a new board
-		GameBoard fortuneBoard = new GameBoard("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 
-				"The Secret Life of Bees", "Movies"); 
-		
-		//Creates 3 new players
-		Player player1 = new Player(1);
-		Player player2 = new Player(2);
-		Player player3 = new Player(3);
-		
-		//Displays the initial board
-		displayBoard(fortuneBoard);
-		
-		play(player1, fortuneBoard);
-		
-	}
 	
-	public static void displayBoard(GameBoard board)
+	//Creates a new board
+	private static GameBoard fortuneBoard = new GameBoard("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 
+					"The Secret Life of Bees", "Movies"); 
+	
+	public static void displayBoard()
 	{
 		
 		//Display available letters
-		board.displayLetters();
+		fortuneBoard.displayLetters();
 				
 		//Update puzzle
-		board.updatePuzzle();
+		fortuneBoard.updatePuzzle();
 				
 		//Display updated puzzle
-		board.displayPuzzle();	
+		fortuneBoard.displayPuzzle();	
 		
 	}
 	
-	public static void play (Player player, GameBoard board) 
+	public static void play (Player player) 
 	{
 		Wheel fortuneWheel = new Wheel();
 		int playerChoice=-1;
@@ -87,31 +71,53 @@ public class WheelOfFortune
 				fortuneWheel.spin();
 				
 				/*This if-else block executes when the player lands on a wheel value 
-				 * greater than 0.0
+				 *greater than 0.0
 				 */
 				if (fortuneWheel.getWheelValue()>0.0) 
 				{
 					
+					/*This do-while loop will execute as long as the player is guessing
+					 * a letter that has already been guessed
+					 */
 					do 
 					{
-						
+						//Prompts player to select a letter
 						System.out.print("Select your letter from the available letters from above: ");
 					
+						//Gets player guess
 						player.setPlayerGuess(keyboard.next().charAt(0)); 
 					
-						wasGuessed = board.isLetterGuessed(player.getPlayerGuess());
+						//Checks that the letter has not been guessed
+						wasGuessed = fortuneBoard.isLetterGuessed(player.getPlayerGuess());
 						
 					}while (wasGuessed);
 					
-					board.setCharacter(player.getPlayerGuess());
+					/* Play the current letter on the board. 
+					 * The validity of the letter has not been checked at this point
+					 * Code has only checked that the letter is not a duplicate guess at this point
+					 */
+					fortuneBoard.setCharacter(player.getPlayerGuess());
 					
 					System.out.println();
-					board.updateAvailableLetters();
 					
-					if (board.isLetterInPuzzle(player.getPlayerGuess())==true)
-					displayBoard(board);
+					//Removes the current letter on the board from the list of available letters
+					fortuneBoard.updateAvailableLetters();
+					
+					/* Now checking if current letter is in the puzzle
+					 * If the player guesses a letter that is in the puzzle, player can go again
+					 * else the player's turn terminates
+					 */
+					if (fortuneBoard.isLetterInPuzzle(player.getPlayerGuess())==true)
+						displayBoard();
 					else
 						goAgain=false;
+					
+					//Checks whether the puzzle has been solved
+					puzzleSolved = checkSolved();
+					
+					//Prints congratulatory message if puzzle is solved
+					if(puzzleSolved==true)
+						System.out.println("Congratulations! You Solved the Puzzle!");
 				}
 				else
 				{
@@ -128,8 +134,37 @@ public class WheelOfFortune
 				//Insert a test here to check if puzzle solved
 		}
 		
+	}//End Play
+	
+	public static boolean checkSolved()
+	{
+		boolean solved;
+		if (fortuneBoard.getPendingPuzzle().equalsIgnoreCase(fortuneBoard.getPuzzle()))
+			solved = true;
+		else
+			solved =  false;
+		
+		return solved;
 	}
 	
+	public static void main (String [] args) 
+	{
+		//Prints welcome message
+		System.out.println("Welcome to the Wheel of Fortune\n");
+		
+		//Creates 3 new players
+		Player player1 = new Player(1);
+		Player player2 = new Player(2);
+		Player player3 = new Player(3);
+		
+		//Displays the initial board
+		displayBoard();
+		
+		play(player1);
+		play(player2);
+		play(player3);
+		
+	}
 	
 	
 }

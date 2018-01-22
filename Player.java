@@ -3,6 +3,7 @@ public class Player {
 	
 	private int playerNumber;
 	private char playerGuess;
+	private double total;
 	
 	public Player(int number)
 	{
@@ -22,6 +23,12 @@ public class Player {
 	public char getPlayerGuess()
 	{
 		return playerGuess;
+	}
+	
+	//Under construction
+	public double setTotal(double totalb)
+	{
+		return total;
 	}
 
 }
