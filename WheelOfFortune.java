@@ -4,7 +4,7 @@ public class WheelOfFortune
 	
 	//Creates a new board
 	private static GameBoard fortuneBoard = new GameBoard("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 
-					"Nessim", "Movies"); 
+					"The Secret Life of Bees", "Movies"); 
 	
 	public static void displayBoard()
 	{
