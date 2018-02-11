@@ -11,6 +11,7 @@ public class Wheel
 		wheelSpot = rando.nextInt(9)+1;
 		wheelValue = wheelValue(wheelSpot);
 		System.out.println("You landed on $" + wheelValue );
+		System.out.println();
 	}
 	
 	private double wheelValue(int spot)

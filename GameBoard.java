@@ -122,6 +122,11 @@ public class GameBoard {
 
 	}
 	
+	public void setPendingPuzzle(String puzzleGuess) 
+	{
+		pendingPuzzle = new StringBuilder(puzzleGuess.trim());
+	}
+	
 	public String getPendingPuzzle() 
 	{
 		return this.pendingPuzzle.toString();

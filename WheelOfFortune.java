@@ -4,7 +4,7 @@ public class WheelOfFortune
 	
 	//Creates a new board
 	private static GameBoard fortuneBoard = new GameBoard("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 
-					"The Secret Life of Bees", "Movies"); 
+					"Nessim", "Movies"); 
 	
 	public static void displayBoard()
 	{
@@ -60,7 +60,7 @@ public class WheelOfFortune
 				{
 					//Assigns -1 to variable to prompt another loop iteration
 					playerChoice=-1;
-					System.out.println();
+					
 				}
 				
 			}while(playerChoice != 1 && playerChoice!=2);
@@ -109,29 +109,51 @@ public class WheelOfFortune
 					 */
 					if (fortuneBoard.isLetterInPuzzle(player.getPlayerGuess())==true)
 						displayBoard();
-					else
+					else {
 						goAgain=false;
-					
-					//Checks whether the puzzle has been solved
-					puzzleSolved = checkSolved();
-					
-					//Prints congratulatory message if puzzle is solved
-					if(puzzleSolved==true)
-						System.out.println("Congratulations! You Solved the Puzzle!");
+						System.out.println("Incorrect!");
+						System.out.println();
+					}
+	
 				}
+				
 				else
 				{
+					//If wheel value is less than 0, turn terminates
 					goAgain = false;
 				}
 			}
 			else
 			{
-				/*
-				 * guess
-				 */
+				System.out.print("Please Enter Your Guess: ");
+				keyboard = new Scanner(System.in);
+				String playerGuess = keyboard.next().trim();
+				
+				if (!playerGuess.equalsIgnoreCase(fortuneBoard.getPuzzle())) 
+				{
+					System.out.println("\nIncorrect!\n");
+					goAgain = false;
+				}
+				
+				else {
+					fortuneBoard.setPendingPuzzle(playerGuess);
+				}
+			
+		
+						
+				
 			}
 			
-				//Insert a test here to check if puzzle solved
+			/*Checks whether the puzzle has been solved
+			 *Prints congratulatory message if puzzle is solved and terminates turn
+			 */
+			if(checkSolved()==true)
+			{
+				
+				goAgain=false;
+				System.out.println("Congratulations! You Solved the Puzzle!\n"+
+							"Player " + player.getPlayerNumber()+ " Wins!");
+			}
 		}
 		
 	}//End Play
@@ -139,8 +161,10 @@ public class WheelOfFortune
 	public static boolean checkSolved()
 	{
 		boolean solved;
-		if (fortuneBoard.getPendingPuzzle().equalsIgnoreCase(fortuneBoard.getPuzzle()))
+		if (fortuneBoard.getPendingPuzzle().equalsIgnoreCase(fortuneBoard.getPuzzle())) {
 			solved = true;
+			
+		}
 		else
 			solved =  false;
 		
@@ -157,12 +181,27 @@ public class WheelOfFortune
 		Player player2 = new Player(2);
 		Player player3 = new Player(3);
 		
-		//Displays the initial board
-		displayBoard();
+		do {
+			displayBoard();
+			play(player1);
+			
+				if (checkSolved()==true)
+				break;
+				
+			displayBoard();	
+			play(player2);
+			
+				if (checkSolved()==true)
+				break;
+				
+			displayBoard();
+			play(player3);
+			
+				if (checkSolved()==true)
+				break;
+			
+		}while(checkSolved()==false);
 		
-		play(player1);
-		play(player2);
-		play(player3);
 		
 	}
 	
