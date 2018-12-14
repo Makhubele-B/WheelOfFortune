@@ -127,8 +127,8 @@ public class WheelOfFortune
 			{
 				System.out.print("Please Enter Your Guess: ");
 				keyboard = new Scanner(System.in);
-				String playerGuess = keyboard.next().trim();
-				
+				String playerGuess = keyboard.nextLine().trim();
+
 				if (!playerGuess.equalsIgnoreCase(fortuneBoard.getPuzzle())) 
 				{
 					System.out.println("\nIncorrect!\n");
